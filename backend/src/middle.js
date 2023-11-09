@@ -25,16 +25,17 @@ const checkAuth = (req, res, next) => {
   });
 };
 
-const logOnly = (req, res, next) => {
+const log = (req, res, next) => {
  let method = req.method.toUpperCase();
  let path = req.path;
- let code = res.statusCode;
+
  if(method === 'GET' && path.indexOf('image') === 1){
    // no need to log these
    return next();
  }
  const start = Date.now();
  res.on('finish', function(){
+  let code = res.statusCode;
   const timing = Date.now() - start;
   let username = res.get('X-Arcis-Username');
   if(!username){
@@ -48,7 +49,7 @@ const logOnly = (req, res, next) => {
 
 
 module.exports = {
-  logOnly,
+  log,
   checkAuth,
 };
 
