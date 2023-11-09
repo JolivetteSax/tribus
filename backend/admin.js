@@ -17,6 +17,12 @@ mongoose.connect("mongodb://127.0.0.1:27017/tribus")
     return cmd.createUser(email, password)
     .then(console.log);
     break;
+  case 'setPassword':
+    email = process.argv[3];
+    password = process.argv[4];
+    return cmd.updateUser(email, password)
+    .then(console.log);
+    break;
   case 'showUser':
     email = process.argv[3];
     return cmd.getUser(email)
