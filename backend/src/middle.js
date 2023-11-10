@@ -1,22 +1,21 @@
 const moment = require('moment');
 const hostname = require('os').hostname();
-
+const mongoose = require('mongoose');
+const User = require('../models/Users.js')
+;
 const checkAuth = (req, res, next) => {
-  let token = req.get('X-Arcis-Token');
+  let token = req.get('X-Tribus-Token');
   if(!token){
     token = req.query.token.toString();
   }
   if(!token){
     return res.status(403).send();
   }
-  sql.Login.findOne({
-     where: { token }
-  })
+  User.findOne({ token })
   .then((login) => {
     if(login){
       // Setting this for downstream use prevents spoofing
-      // The req object doesn't have a setter, but this works fine too
-      res.set('X-Arcis-Username', login.email);
+      res.set('X-Tribus-Username', login.email);
       next();
     }
     else{
@@ -37,7 +36,7 @@ const log = (req, res, next) => {
  res.on('finish', function(){
   let code = res.statusCode;
   const timing = Date.now() - start;
-  let username = res.get('X-Arcis-Username');
+  let username = res.get('X-Tribus-Username');
   if(!username){
     username = "UNK";
   }

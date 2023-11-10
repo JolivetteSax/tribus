@@ -1,0 +1,70 @@
+
+#container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  color: #000;
+  background-color: #e6e6e6;
+}
+.first-page {
+  height: 95%;
+  min-height: 95%;
+  background-color: #8DA1B9;
+}
+.second-page {
+  background-color: #DBC7BE;
+  height: 90%;
+  min-height: 90%;
+}
+.third-page {
+  background-color: darkblue;
+  height: 90%;
+  min-height: 90%;
+}
+.fourth-page {
+  height: 95%;
+  min-height: 95%;
+}
+.hint {
+  position: absolute;
+  bottom: 20%;
+  font-size: 16px;
+}
+
+.box {
+  width: 400px;
+  height: 400px;
+  transform: translateX(-50%);
+  position: relative;
+}
+
+.box1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.box2 {
+  margin-top:150px;
+  margin-left:150px;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  opacity: .9;
+}

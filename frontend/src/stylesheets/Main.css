@@ -1,0 +1,35 @@
+.Main-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    padding-top: 20px;
+}
+
+.User-controls {
+    width: 100vw;
+  padding-left: 80%;
+  height: 40px;
+}
+
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+.Gallery-container {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+
+.Gallery{
+    flex: 0 0 auto;
+    width: 500px;
+    justify-content: center;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+}

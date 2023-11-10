@@ -1,0 +1,75 @@
+.Add-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  /*  height: 100vh;*/
+}
+
+.Add-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  /*  height: 100vh;*/
+}
+
+.picture {
+  animation: fade-in 2s ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.Add-form {
+  width: 500px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Add-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Add-incorrect {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 18px;
+  color: rgb(255, 0, 0);
+  font-weight: 800;
+}
+
+.Add-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+.Add-form-title-already {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(0, 51, 255);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
