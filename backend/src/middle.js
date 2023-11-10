@@ -1,9 +1,9 @@
 const moment = require('moment');
 const hostname = require('os').hostname();
 const mongoose = require('mongoose');
-const User = require('../models/Users.js')
-;
-const checkAuth = (req, res, next) => {
+const User = require('../models/Users.js');
+
+const auth = (req, res, next) => {
   let token = req.get('X-Tribus-Token');
   if(!token){
     token = req.query.token.toString();
@@ -14,6 +14,7 @@ const checkAuth = (req, res, next) => {
   User.findOne({ token })
   .then((login) => {
     if(login){
+      console.log("User authorized for API access");
       // Setting this for downstream use prevents spoofing
       res.set('X-Tribus-Username', login.email);
       next();
@@ -49,6 +50,6 @@ const log = (req, res, next) => {
 
 module.exports = {
   log,
-  checkAuth,
+  auth,
 };
 

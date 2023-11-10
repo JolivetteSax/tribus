@@ -34,7 +34,7 @@ export default class myProjects extends React.Component {
 
   render() {
     if (!this.state.stillAuthorized) {
-      return <Navigate to="/auth" />
+      return <Navigate to="/login" />
     }
     return (
       <>

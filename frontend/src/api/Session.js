@@ -13,37 +13,13 @@ export default class Session {
     this.salt= moment().utc().format();
   }
 
-  getBase64(file) {
-   return new Promise((resolve, reject) => {
-     const reader = new FileReader();
-     reader.readAsDataURL(file);
-     reader.onload = () => resolve(reader.result.split(',').pop());
-     reader.onerror = error => reject(error);
-    });
-  }
-
-  uploadFile(path, file) {
-    const size = file.size;
-    return this.getBase64(file)
-    .then((base64) => {
-      return this.callApi(path, {size, base64});
-    });
-  }
-
-
-  beforeUploadXHR(request){
-    const token = window.sessionStorage.getItem("arcis_token");
-    request.setRequestHeader('X-Arcis-Token',token);
-    return request;
-  }
-
   getToken(){
-    const token = window.sessionStorage.getItem("arcis_token");
+    const token = window.sessionStorage.getItem("tribus_token");
     return token;
   }
   
   async callApi(path, postBody) {
-    const token = window.sessionStorage.getItem("arcis_token");
+    const token = window.sessionStorage.getItem("tribus_token");
     let method = 'get';
     if (postBody) {
       method = 'post';
@@ -57,7 +33,7 @@ export default class Session {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'X-Client-Version': '1',
-        'X-Arcis-Token': token,
+        'X-Tribus-Token': token,
       },
       body,
     });
@@ -85,7 +61,7 @@ export default class Session {
   async logout(){
     // The device id or email is unecessary here, the server can get that
     // from the token in the database if it needs it
-    let token = window.sessionStorage.getItem("arcis_token");
+    let token = window.sessionStorage.getItem("tribus_token");
     if(token === 'undefined'){
       token = undefined;
     }
@@ -142,8 +118,8 @@ export default class Session {
       body: JSON.stringify(post)
     });
     const json = await res.json();
-    console.log(post);
-    console.log(json);
+    //console.log(post);
+    //console.log(json);
  
     if(json.token){
       window.sessionStorage.setItem("tribus_token", json.token);
