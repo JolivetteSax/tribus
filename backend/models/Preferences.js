@@ -6,13 +6,13 @@ const schema = Schema({
   description: String,
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   active: Boolean,
-  parentProject: {type: Schema.Types.ObjectId, ref: "Project"},
+  project: {type: Schema.Types.ObjectId, ref: "Project"},
   observers: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 }, {
   timestamps: true
 });
 
-model = mongoose.model("Project", schema);
+model = mongoose.model("Preference", schema);
 
 model.createIndexes();
 

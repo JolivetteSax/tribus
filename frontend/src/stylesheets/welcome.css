@@ -3,7 +3,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(rgba(250, 247, 247, 0.8), rgba(239, 232, 232, 0.8)), url("../images/operahouse.jpeg");
+  background-image: linear-gradient(rgba(250, 247, 247, 0.7), rgba(239, 232, 232, 0.7)), url("../images/operahouse.jpeg");
 
 background-size: cover;
 }
